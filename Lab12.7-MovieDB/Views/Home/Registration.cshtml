@@ -1,0 +1,44 @@
+﻿@model Movie
+
+<h1 class="display-4">Movie Registration</h1>
+<br>
+<p asp-validation-summary="ModelOnly" class="text-danger"></p>
+ 
+<form action="Register" method="post">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger" />
+    <br />
+    <label asp-for="Genre" class="control-label"></label>
+    <br />
+    <select asp-for="Genre">
+        <option disabled selected value="Select a Genre">Select a Genre</option>
+        <option value="Action">Action</option>
+        <option value="Animated">Animated</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Horror">Horror</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+
+    </select>
+    <span asp-validation-for="Genre" class="text-danger"></span>
+    <br />
+    <br />
+    <label asp-for="Year" class="control-label"></label>
+    <input asp-for="Year" class="form-control" />
+    <span asp-validation-for="Year" class="text-danger" />
+    <br />
+    <label asp-for="Runtime"  class="control-label"></label>
+    <input asp-for="Runtime" class="form-control" />
+    <span asp-validation-for="Runtime" class="text-danger" />
+
+    <br />
+
+
+    <input type="submit" />
+
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
